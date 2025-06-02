@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <body>
+    <form method="POST">
+      <label>Currency Type 1:</label>
+      <select name="currency_from" required>
+        {% for code, name in currencies.items() %}
+          <option value="{{ code }}">{{ code }} - {{ name }}</option>
+        {% endfor %}
+      </select><br>
+
+      <label>Amount:</label>
+      <input type="number" name="amount" step="any" required><br>
+
+      <label>Currency Type 2:</label>
+      <select name="currency_to" required>
+        {% for code, name in currencies.items() %}
+          <option value="{{ code }}">{{ code }} - {{ name }}</option>
+        {% endfor %}
+      </select><br>
+
+      <input type="submit" value="Convert">
+    </form>
+
+    {% if result is not none %}
+      <h3>Result: {{ result }}</h3>
+    {% endif %}
+  </body>
+</html>
