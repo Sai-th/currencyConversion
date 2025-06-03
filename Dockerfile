@@ -1,18 +1,20 @@
-# get a lightweight python image from official python 3.11
+# Use lightweight python image from official python 3.11
 FROM python:3.11-slim 
 
-# sets working directory inside /app inside the ocntainer 
+# Set working directory inside /app inside the container 
 WORKDIR /app 
 
-#copies requirements.txt to /app for ease of execution
+# Copy requirements.txt to /app for dependency installation
 COPY requirements.txt requirements.txt 
 
-#removes packages cache after installation to save space
+# Install packages and remove cache after installation to save space
 RUN pip install --no-cache-dir -r requirements.txt 
 
-#copies all the files and folders from currencyConversion to container so the wprk is done smoothly
+# Copy all files and folders to container
 COPY . .
 
+# Expose port 5050
 EXPOSE 5050
-#runs python app.py when the container is generated using this image.
-CMD ["python", "conversion_app.py"]
+
+# Run the Flask application when container starts
+CMD ["python", "app.py"]
