@@ -10,6 +10,12 @@ pipeline {
         pollSCM('H * * * *') // Check for git changes every hour
     }
     stages {
+        stage('Sanity Check') {
+    steps {
+        echo 'Jenkinsfile is being executed!'
+    }
+}
+
         stage('Clone') {
             steps {
                 git 'https://github.com/Sai-th/currency_converter.git'
