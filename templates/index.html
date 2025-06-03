@@ -1,29 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <body>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 50px auto; padding: 20px; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; }
+        .result { margin-top: 20px; padding: 15px; background: #d4edda; }
+    </style>
+</head>
+<body>
+    <h1>Currency Converter</h1>
     <form method="POST">
-      <label>Currency Type 1:</label>
-      <select name="currency_from" required>
-        {% for code, name in currencies.items() %}
-          <option value="{{ code }}">{{ code }} - {{ name }}</option>
-        {% endfor %}
-      </select><br>
-
-      <label>Amount:</label>
-      <input type="number" name="amount" step="any" required><br>
-
-      <label>Currency Type 2:</label>
-      <select name="currency_to" required>
-        {% for code, name in currencies.items() %}
-          <option value="{{ code }}">{{ code }} - {{ name }}</option>
-        {% endfor %}
-      </select><br>
-
-      <input type="submit" value="Convert">
+        <input type="number" step="0.01" name="amount" placeholder="Amount" required>
+        <select name="currency_from" required>
+            {% for code, name in currencies.items() %}
+                <option value="{{ code }}">{{ code }} - {{ name }}</option>
+            {% endfor %}
+        </select>
+        <select name="currency_to" required>
+            {% for code, name in currencies.items() %}
+                <option value="{{ code }}">{{ code }} - {{ name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Convert</button>
     </form>
-
-    {% if result is not none %}
-      <h3>Result: {{ result }}</h3>
+    
+    {% if result %}
+        <div class="result">Result: {{ result }}</div>
     {% endif %}
-  </body>
+</body>
 </html>
