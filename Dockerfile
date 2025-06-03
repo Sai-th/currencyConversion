@@ -13,5 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 #copies all the files and folders from currencyConversion to container so the wprk is done smoothly
 COPY . .
 
+EXPOSE 5050
 #runs python app.py when the container is generated using this image.
 CMD ["python", "conversion_app.py"]
