@@ -4,12 +4,6 @@ pipeline {
     }
     
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/Sai-th/currencyConversion.git'
-            }
-        }
-        
         stage('Test') {
             steps {
                 sh 'python3 -c "print(\"Syntax check passed\")"'
