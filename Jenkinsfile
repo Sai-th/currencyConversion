@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/currency_converter.git'
+                git 'https://github.com/Sai-th/currency_converter.git'
             }
         }
         stage('Install Dependencies') {
