@@ -20,10 +20,6 @@ pipeline {
                 sh 'pip install -r requirements.txt'
             }
         }
-        stage('Package') {
-            steps {
-                sh 'echo "Packaging application..."'
-            }
         }
         stage('Package') {
             steps {
