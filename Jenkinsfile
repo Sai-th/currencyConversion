@@ -25,9 +25,15 @@ pipeline {
                 sh 'echo "Packaging application..."'
             }
         }
-        stage('End'){
-            steps{
-                sh 'echo "###########---------Build completed succesfully!!---------###########'
+        stage('Package') {
+            steps {
+                sh 'echo "Packaging application..."'
+                sh 'tar -czf conversion_app.tar.gz *'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'python conversion_app.py & sleep 10' // start app in background and allow time to initialize
             }
         }
     }
