@@ -1,4 +1,3 @@
-# Jenkinsfile
 pipeline {
     agent {
         docker {
@@ -20,7 +19,6 @@ pipeline {
             steps {
                 sh 'pip install -r requirements.txt'
             }
-        }
         }
         stage('Package') {
             steps {
