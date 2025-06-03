@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 #runs python app.py when the container is generated using this image.
-CMD ["python", "app.py"]
+CMD ["python", "conversion_app.py"]
