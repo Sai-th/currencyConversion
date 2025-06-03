@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'python3 -c "print(\"Syntax check passed\")"'
+                sh 'python3 -c "print(\'Syntax check passed\')"'
             }
         }
         
